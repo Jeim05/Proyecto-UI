@@ -99,6 +99,8 @@ a cuando estemos haciendo el display en un movil*/
 .nav_links {
     color: #fff;
     text-decoration: none;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 /*Modificaciones a la seccion del HERO CONTAINER*/
@@ -132,6 +134,12 @@ a cuando estemos haciendo el display en un movil*/
     text-decoration: none;
     padding: 13px 30px;
     border-radius: 32px;
+}
+
+.cta:hover{
+    background-color: #fff;
+    color: #000;
+    border: #2091F9 solid 1px;
 }
 
 /*Proceso de modoficacion de estilos a la seccion principal o MAIN - apartado de la seccion CONTAINER ABOUT*/
@@ -287,6 +295,11 @@ a cuando estemos haciendo el display en un movil*/
     box-shadow: 0 0 1px rgba(0, 0, 0, .5);
 }
 
+.price_cta:hover{
+    color: #fff;
+    background-color: #2091F9;
+}
+
 .price__element--best {
     width: 370px;
     padding: 60px 40px;
@@ -386,6 +399,10 @@ a cuando estemos haciendo el display en un movil*/
 
 .questions_padding--add {
     padding-bottom: 30px;
+}
+
+.questions_padding:hover{
+    background-color: antiquewhite;
 }
 
 /*Esta clase se va a agregar de manera dinamica*/
@@ -529,8 +546,10 @@ a cuando estemos haciendo el display en un movil*/
     width: 30px;
 }
 
-.nav_items:hover{
-    border-bottom: #001A49;
+
+.nav_links:hover{
+    /* color: #2091F9; */
+    border-bottom: #fff solid 3px;
 }
 
 /*Proceso de adaptacion de la landing page a dispositivos moviles - media queries*/

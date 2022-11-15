@@ -17,6 +17,8 @@
             addPadding.classList.toggle('questions_padding--add');
             //Esta instruccion agrega o elimina, si tiene o no tiene el modificador de la clase questions_padding
 
+            addPadding.classList.toggle('questions_padding--hover');
+
             question.children[0].classList.toggle('questions_arrow--rotate');//De question que hace referencia a la pregunta el H3, yo quiero obtener a sus hijos, en especial al primer hijo, que es la posicion 0 y entrar a sus clase y agregarle o eliminarle el modificador que le cree a la clase question_arrow que es el SPAN en donde esta la imagen flecha.
 
             if (respuesta.clientHeight === 0) {
