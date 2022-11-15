@@ -1,0 +1,739 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/*Creamos dos variables que puedan ser usadas en cualquier elemento de edicion dentro del archivo css
+Creamos 2 propiedades customizadas, con el fin de poder usarlas a lo largo del estilo de la pagina web*/
+:root {
+    --padding-container: 100px 0;
+    --color-title: #001A49;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/*Lo que hicimos por aca fue abstraer una fuente por defecto de Google fonts con el fin de que si un usuario en un 
+navegador no tiene una fuente predefinida, se muestre la fuente que nosotros seleccionamos por defecto
+en google fonts*/
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: var(--padding-container);
+    /*Lo que estamos haciendo, es dandole un padding, osea un espacio de 100px entre el contenido del contenedor
+    principal de la pagina y el borde del sitio, un espaciado de 100px de altura y de ancho 0*/
+}
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 800px;
+    position: relative;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    color: #fff;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*Lo que estamos colocando aqui, es una caracteristica que nos va a ayudar a que cuando pasemos el mouse
+    por la imagen se vea el resaltado de ese color gris oscuro, lo que le ponemos aqui es un tipo transparencial a la imagen a la
+    hora de pasar el selector por encima ----> background-image*/
+    background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url('../images/camaraIMG.jpg');
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 95%, 0 80%);
+    z-index: -1;
+    /*Este elemento lo que hace es sobreponer el texto sobre la imagen que se coloca
+    en el encabezado de la pagina*/
+}
+
+/*Menu navegable*/
+.nav {
+    --padding-container: 0;
+    height: 100%;
+    display: flex;
+    /*Alinea los elementos del menu a la par*/
+    align-items: center;
+}
+
+.nav_title {
+    font-weight: 300;
+}
+
+.nav_link {
+    margin-left: auto;
+    padding: 0;
+    display: grid;
+    grid-auto-flow: column;
+    /*Que se despleguen los elementos de la lista en columnas*/
+    grid-auto-columns: max-content;
+    gap: 2em;
+    /*Con gap definimos el espaciado entre los elementos de la lista*/
+    text-decoration: none;
+}
+
+.nav_menu {
+    margin-left: auto;
+    cursor: pointer;
+    display: none;
+    /*Modificaciones al menu hamburgueza, le estamos poniendo la caracteristica de que cuando el cursor
+se ponga sobre el este pueda ser seleccionado y poniendo un display none, para que no se muestre a excepcion
+a cuando estemos haciendo el display en un movil*/
+}
+
+.nav_close {
+    display: var(--show, none);
+}
+
+.nav_items {
+    list-style: none;
+}
+
+.nav_links {
+    color: #fff;
+    text-decoration: none;
+}
+
+/*Modificaciones a la seccion del HERO CONTAINER*/
+
+.hero_container {
+    max-width: 800px;
+    display: grid;
+    --padding-container: 0;
+    grid-auto-rows: max-content;
+    align-content: center;
+    gap: 1em;
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+.hero_title {
+    font-size: 3rem;
+
+}
+
+.hero_paragraph {
+    margin-bottom: 20px;
+}
+
+/*Este es el boton de comienza ahora mismo tu aprendizaje*/
+.cta {
+    display: inline-block;
+    background-color: #2091F9;
+    justify-self: center;
+    color: #fff;
+    text-decoration: none;
+    padding: 13px 30px;
+    border-radius: 32px;
+}
+
+/*Proceso de modoficacion de estilos a la seccion principal o MAIN - apartado de la seccion CONTAINER ABOUT*/
+
+.about {
+    text-align: center;
+}
+
+.subtitle {
+    color: var(--color-title);
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+
+.about__paragraph {
+    line-height: 1.7;
+}
+
+.about_main {
+    padding-top: 80px;
+    display: grid;
+    width: 90%;
+    margin: 0 auto;
+    gap: 1em;
+    overflow: hidden;
+    grid-template-columns: repeat(auto-fit, minmax(260px, auto));
+    /*Creacion de columnas dinamicas - Esta funcionalidad en css lo que hace es que se creen
+    columnas de los articulos definidos de manera automatica independientemente el dispositivo en donde 
+    se lleve a cabo el display de la pagina, sea movil o desktop*/
+}
+
+
+.about_icons {
+    display: grid;
+    gap: 1em;
+    justify-items: center;
+    width: 260px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.about__icon {
+    width: 40px;
+}
+
+/*Apartado del knowledge*/
+.knowledge {
+    background-color: #e5e5f7;
+    background-image: radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    overflow: hidden;
+}
+
+.knowledge_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    align-items: center;
+}
+
+.knowledge_picture {
+    max-width: 500px;
+}
+
+.knowledge_img {
+    width: 100%;
+    display: block;
+}
+
+.knowledge_paragrah {
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+/*Modificaciones en price*/
+
+.price {
+    text-align: center;
+}
+
+.price_table {
+    padding-top: 60px;
+    display: flex;
+    /*Esta propiedad se usa para cuando queremos que los elementos del contenedor
+    se despleguen con la posibilidad de tener mas espacio en el grid de la seccion*/
+
+    /*El display flex - es una propiedad de flexbox que lo que hace es que los elementos del contenedor
+    se vayan adaptando al tamaño segun el dispositivo en donde se esta haciendo el display, funcionan como cajas
+    que tienen un  tipo de elasticidad, que conforme el tamaño se va achicando los elementos tambien lo van
+    haciendo conforme el tam se va modificando*/
+    flex-wrap: wrap;
+    /*Por defecto el atributo que acompaña a la propieda flex-wrap es nowrap, que lo que hace es que el tamaño
+    funciona como al tener un display flex por defecto, osea el tamaño no cambia, solo se va a adaptando segun el 
+    dispositivo en donde se hace el display
+    
+    sin embargo con usar la propieda wrap, no pasa eso, lo que pasa es que los elementos se van moviendo 
+    dependiendo si caben o no en el tamaño que esta puesto en el momento
+    
+    Osea si el tamaño se va haciendo reducido con un display flex o un nowrap, lo que hace es que el
+    elemento se vaya achicando y se vaya adaptando al tamaño del display con el wrap lo que hace es que si ya el
+    elemento no cabe en el tamaño se pone uno abajo del otro con el fin de tomar el espacio adecuado que necesita*/
+
+    gap: 2.5em;
+    justify-content: space-evenly;
+    /*brinda una espaciado equitativamente entre los elementos en las esquinas*/
+    align-items: center;
+}
+
+.price_element {
+    background-color: #e5e5f7;
+    text-align: center;
+    border-radius: 10px;
+    width: 330px;
+    padding: 40px;
+    --color-plan: #696871;
+    --color-price: #1D293F;
+    --bg-cta: #fff;
+    --color-cta: #5454D4;
+    --color-items: #696871;
+}
+
+.price_name {
+    color: var(--color-plan);
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+.price_price {
+    font-size: 2.5rem;
+    color: var(--color-price);
+}
+
+.price_items {
+    margin-top: 35px;
+    display: grid;
+    gap: 1em;
+    font-weight: 300;
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    color: var(--color-items);
+}
+
+.price_cta {
+    display: block;
+    padding: 20px 0;
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: var(--bg-cta);
+    font-weight: 600;
+    color: #050627;
+    box-shadow: 0 0 1px rgba(0, 0, 0, .5);
+}
+
+.price__element--best {
+    width: 370px;
+    padding: 60px 40px;
+    background-color: #1D293F;
+    --color-plan: rgb(255 255 255 / 75%);
+    --color-price: #fff;
+    --bg-cta: #d9d9d9;
+    --color-cta: #1D293F;
+    --color-items: #fff;
+}
+
+/*Modificacion al apartado de slider de testimonios*/
+.testimony {
+    background-color: #e5e5f7;
+}
+
+.testimony_container {
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    gap: 1em;
+    align-items: center;
+}
+
+.testimony_arrow {
+    width: 90%;
+    cursor: pointer;
+}
+
+.testimony_body {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    justify-content: space-between;
+    /*Esta propiedad sirve para que el contenido de la seccion se vaya hasta las 
+    esquinas y se centre verticalmente*/
+    align-items: center;
+    gap: 2em;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    opacity: 0;
+    pointer-events: none;
+    /*Propiedad que usa para que los elementos no puedan ser seleccionados con el mouse
+    esto obliga a que la unica manera de deslizar es darle clic a la flecha derecha o izquierda*/
+}
+
+.testimony_texts {
+    max-width: 700px;
+}
+
+.testimony_img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 30%;
+    /*Esta propiedad ajusta la imagen un 50% horizontal y 30% vertical*/
+}
+
+.testimony_course {
+    background-color: royalblue;
+    color: #fff;
+    display: inline-block;
+    padding: 5px;
+}
+
+.testimony_body--show {
+    pointer-events: unset;
+    opacity: 1;
+    transition: opacity 1.5s ease-in-out;
+}
+
+/*A nivel del apartado de testimonios, en el slider, unicamente se vera el testimonio body show de la seccion 1*/
+/*Luego con javascript, le daremos la verdadera funcionalidad al slider*/
+
+/*Estilos a la seccion de preguntas frequentes*/
+
+.questions {
+
+    text-align: center;
+
+}
+
+.questions_container {
+
+    display: grid;
+    gap: 2em;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.questions_padding {
+
+    padding: auto;
+    transition: padding .2s;
+    border: 1px solid #5454D4;
+    border-radius: 6px;
+}
+
+.questions_padding--add {
+    padding-bottom: 30px;
+}
+
+/*Esta clase se va a agregar de manera dinamica*/
+
+.questions_arrow {
+    border-radius: 50%;
+    background-color: var(--color-title);
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    /*Envia los elementos al final*/
+    margin-left: 10px;
+    transition: transform .3s;
+}
+
+.questions_arrow--rotate {
+    transform: rotate(180deg);
+}
+
+.questions_img {
+    display: block;
+}
+
+.questions_answer {
+    overflow: hidden;
+    padding: 0px 30px 0px;
+}
+
+.questions_title {
+    display: flex;
+    text-align: left;
+    padding: 30px 0 30px;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--color-title);
+    justify-content: space-between;
+}
+
+.questions_show {
+    text-align: left;
+    height: 0;
+    transition: height .3s;
+}
+
+.questions_copy {
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+/*Diseño para la seccion del footer*/
+
+.footer {
+    background-color: #1D293F
+}
+
+.footer_title {
+    font-weight: 200;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    margin: 20px;
+}
+
+.footer_title,
+.footer_newsletter {
+    color: #fff;
+}
+
+.footer_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 60px;
+}
+
+.nav--footer {
+    padding-bottom: 20px;
+    display: grid;
+    gap: 1em;
+    grid-auto-flow: row;
+    height: 100%;
+}
+
+.nav_link--footer {
+    display: flex;
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-wrap: wrap;
+}
+
+.footer_inputs {
+    margin-top: 10px;
+    display: flex;
+    overflow: hidden;
+}
+
+.footer_input {
+    background-color: #fff;
+    height: 50px;
+    display: block;
+    padding-left: 10px;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    margin-right: 16px;
+}
+
+.footer_submit {
+    margin-left: 0;
+    display: inline-block;
+    height: 50px;
+    padding: 0 20px;
+    background-color: #2091F9;
+    border: none;
+    font-size: 1rem;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.footer_copy {
+    --padding-container: 30px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.footer_copywright {
+    font-weight: 300;
+}
+
+.footer_icons {
+    margin-bottom: 10px;
+}
+
+.footer_img {
+    width: 30px;
+}
+
+.nav_items:hover{
+    border-bottom: #001A49;
+}
+
+/*Proceso de adaptacion de la landing page a dispositivos moviles - media queries*/
+
+/*Los media queries son instrucciones que se usan para establecer que una pagina
+pueda ser resposive y pueda verse bien a nivel de dispositivos moviles*/
+@media (Max-width:800px) {
+    .nav_menu {
+        display: block;
+    }
+
+    .nav_link--menu {
+        position: fixed;
+        background-color: #000;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: 100;
+        opacity: 0;
+        pointer-events: none;
+        transition: .7s opacity;
+    }
+
+    .nav_link--show {
+        --show: block;
+        opacity: 1;
+        pointer-events: unset;
+    }
+
+    .nav_close {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 30px;
+        cursor: pointer;
+    }
+
+    .hero_title {
+        font-size: 2.5rem;
+    }
+
+    .about_main {
+        gap: 2em;
+    }
+
+    .about_icons:last-of-type {
+        /*Esta instruccion lo que hace es agarrar el ultimo elemento de los iconos
+        y aplicarle las propiedades de diseño que se van a denotar aqui*/
+
+        grid-column: 1/-1;
+        /*el ultimo elemento le decimos que abarque todo el grid y que se posicione en el centro del grid*/
+    }
+
+    .knowledge_container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3em;
+        grid-template-rows: max-content 1fr;
+    }
+
+    .knowledge_picture {
+        grid-row: 1/2;
+        justify-self: center;
+        /*Con esta propiedad la imagen se centra horizontalmente*/
+    }
+
+    .testimony_container {
+        grid-template-columns: 30px 1fr 30px;
+    }
+
+    .testimony_body {
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content max-content;
+        gap: 3em;
+        justify-items: center;
+    }
+
+    .testimony_img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .questions_copy {
+        width: 100%;
+    }
+
+    .footer_container {
+        flex-wrap: wrap;
+    }
+
+    .nav--footer {
+        width: 100%;
+        justify-items: center;
+    }
+
+    .nav_link--footer {
+        width: 100%;
+        justify-content: space-evenly;
+        /*Esta propieda le indica al elemento a que el espacio disponible sobrante luego de aplicar las dimensiones correspondientes, se aplique de manera equitativa*/
+        margin: 0;
+    }
+
+    .footer_form {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .footer_input {
+        flex: 1;
+        /*Le indicamos al programa que los elementos del formulario de correo y el boton de registrarse abarquen todo el espacio sobrante*/
+    }
+
+}
+
+@media (max-width:600px) {
+
+    .hero_title {
+        font-size: 2rem;
+    }
+
+    .nav_title {
+        font-size: 1rem;
+    }
+
+    .hero_paragraph {
+        font-size: 1rem;
+    }
+
+    .subtitle {
+        font-size: 1.8rem;
+    }
+
+    .price_element {
+        width: 90%;
+    }
+
+    .price__element--best {
+        width: 90%;
+        padding: 40px;
+    }
+
+    .price_price {
+        font-size: 2rem;
+    }
+
+    .testimony_container {
+        grid-template-columns: 28px 1fr 28px;
+        gap: .9em;
+    }
+
+    .testimony_arrow {
+        width: 100%;
+    }
+
+    .testimony_course {
+        margin-top: 15px;
+    }
+
+    .testimony {
+        --padding-container: 60px 0;
+    }
+
+    .questions_title {
+        font-size: 1rem;
+    }
+
+    .footer_title {
+        justify-self: start;
+        /*Esta propiedad le indica al programa que el elemento title debe pasar al principio*/
+        margin: 15px;
+        text-align: center;
+    }
+
+    .footer_inputs {
+        flex-wrap: wrap;
+    }
+
+    .footer_input {
+        margin-bottom: 50px;
+        flex-basis: 100%;
+        margin: 0;
+    }
+
+    .footer_submit {
+        margin: 0;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .nav_link--footer {
+        justify-content: space-between;
+    }
+
+    .nav--footer {
+        padding-bottom: 60px;
+    }
+
+    .footer_newsletter {
+        text-align: center;
+    }
+}
